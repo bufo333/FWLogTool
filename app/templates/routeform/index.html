@@ -1,0 +1,25 @@
+<div>
+    <form name="logform">
+        Choose your log format:
+        <br>
+        <input type="radio" name="Device" value="SRX" ng-model="logform.format"> Juniper SRX
+
+        <input type="radio" name="Device" value="Netscreen" ng-model="logform.format"> Netscreen
+
+        <input type="radio" name="Device" value="ASA" ng-model="logform.format"> Cisco ASA
+        <br>
+        <textarea rows="10" cols="100" maxlength="50000" ng-model="logform.txt"></textarea>
+        <br>
+        <button ng-click="submit(logform)">Submit</button>
+    </form>
+</div>
+<br>
+<div id="results">
+    <ul>
+        <li ng-repeat="result in results">
+            {{result}}
+            <br>
+        </li>
+    </ul>
+
+</div>
