@@ -3,6 +3,8 @@
 angular.module('myApp')
     .controller('View1Ctrl', function($scope, LogProcess) {
         $scope.log;
+        $scope.results=[];
+
         $scope.submit = function(data) {
             $scope.logObject = ({
                 type: data.format,
@@ -14,7 +16,7 @@ angular.module('myApp')
                 type: data.format,
                 data: LogProcess.Process($scope.logObject)
             };
-            $scope.results = LogProcess.Stats(answer);
-            console.log(JSON.stringify($scope.results));
+            $scope.logObject = {};
+            $scope.results = LogProcess.Count(answer,4);
         }
     });

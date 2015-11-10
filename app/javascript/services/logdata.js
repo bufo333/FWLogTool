@@ -2,7 +2,8 @@
 angular.module('myApp')
     .factory("LogProcess", function LogProcessFactory() {
         return {
-            Stats: function(arrayOfLogs) {
+
+            Count: function(arrayOfLogs, element) {
                 var answer = [];
                 var index = ['application', 'bytes-from-client', 'bytes-from-server', 'close-status', 'destination-address', 'destination-port', 'destination-zone-name', 'dst-nat-rule-name',
                     'elapsed-time', 'firewall-IP', 'hostname', 'icmp-type', 'log-type', 'nat-destination-address', 'nat-destination-port', 'nat-source-address', 'nat-source-port',
@@ -12,20 +13,20 @@ angular.module('myApp')
 
                 function CountOx(dta, r) {
                     var count = {};
-                    dta.forEach(function(a) {
-                        count[a[index[r]]] = (count[a[index[r]]] || 0) + 1;
-                    });
+                    for (var i=0; i< dta.length; i++){
+                        count[dta[i][index[r]]] = (count[dta[i][index[r]]] || 0) + 1;
+                        console.log(count);
+                    };
                     return Object.keys(count).map(function(k) {
                         var tmpObject = {};
                         tmpObject[index[r]] = k;
                         tmpObject.count = count[k];
                         return tmpObject;
+
                     });
                 }
 
-                for (var w = 0; w < index.length; w++) {
-                    answer.push(CountOx(arrayOfLogs.data, w));
-                }
+                answer.push(CountOx(arrayOfLogs.data, element));
 
                 function Comparator(a, b) {
                     return parseInt(b.count, 10) - parseInt(a.count, 10);
