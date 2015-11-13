@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('View1Ctrl', function($scope, LogProcess) {
+    .controller('View1Ctrl', function($scope, LogProcess, Analyzer) {
         $scope.log;
         $scope.results=[];
 
@@ -17,6 +17,6 @@ angular.module('myApp')
                 data: LogProcess.Process($scope.logObject)
             };
             $scope.logObject = {};
-            $scope.results = LogProcess.Count(answer,4);
+            $scope.results = Analyzer.Count(answer,4);
         }
     });
