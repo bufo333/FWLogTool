@@ -1,4 +1,4 @@
-<div>
+<div id="inside">
     <form name="logform">
         Choose your log format:
         <br>
@@ -16,10 +16,29 @@
 <br>
 <div id="results">
     <ul>
-        <li ng-repeat="result in results">
-            {{result}}
+        <li ng-repeat="result in results.count">
+            <span ng-repeat="res in result">
+            <span ng-repeat="(k,v) in res">
+              {{k}}: {{v}}
+            </span>
+          </span>
+            <br>
             <br>
         </li>
     </ul>
+    <h3 ng-hide="results"> Sorted Stats</h3>
+    <ul>
+      <li ng-repeat="(key,val) in results.sorted">
+        {{key}}:
+        <div ng-repeat="v in val">
+          <span ng-repeat="item in v">
+            {{item}}
+          </span>
+        </div>
+        <br>
+        <br>
+      </li>
+    </ul>
 
 </div>
+<div ng-cloak>Firewall Log Analyzer: v<span app-version></span></div>

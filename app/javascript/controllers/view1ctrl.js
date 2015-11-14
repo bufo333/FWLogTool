@@ -3,7 +3,7 @@
 angular.module('myApp')
     .controller('View1Ctrl', function($scope, LogProcess, Analyzer) {
         $scope.log;
-        $scope.results=[];
+        $scope.results={};
 
         $scope.submit = function(data) {
             $scope.logObject = ({
@@ -17,6 +17,8 @@ angular.module('myApp')
                 data: LogProcess.Process($scope.logObject)
             };
             $scope.logObject = {};
-            $scope.results = Analyzer.Count(answer,4);
+            $scope.results.count = Analyzer.Count(answer);
+            $scope.results.sorted = Analyzer.Sort(answer);
+            console.log($scope.results);
         }
     });

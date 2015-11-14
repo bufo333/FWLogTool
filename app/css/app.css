@@ -1,5 +1,18 @@
 /* app css stylesheet */
 
+body {
+    background-color: #999999;
+    font-size:12px;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+div#inside {
+    margin-left: 30%;
+    margin-top: 1px;
+    padding: 40px;
+
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -27,4 +40,27 @@
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+div#outer {
+    width: 80%;
+    background-color:#FFFFFF;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    border: thin solid #000000;
+
+}
+div#menu {
+    padding: 15px;
+    margin: 0px;
+    text-align: center;
+
+}
+div#main {
+    margin-left: 30%;
+    margin-top: 1px;
+    padding: 10px;
+
 }
