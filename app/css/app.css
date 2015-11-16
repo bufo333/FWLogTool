@@ -8,9 +8,9 @@ body {
 }
 
 div#inside {
-    margin-left: 30%;
-    margin-top: 1px;
-    padding: 40px;
+    width: 100%;
+    margin: 0 auto;
+
 
 }
 .menu {
@@ -44,23 +44,15 @@ div#inside {
 div#outer {
     width: 80%;
     background-color:#FFFFFF;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 10px;
     border: thin solid #000000;
-
+    max-width: 900px;
 }
 div#menu {
     padding: 15px;
     margin: 0px;
     text-align: center;
-
-}
-div#main {
-    margin-left: 30%;
-    margin-top: 1px;
-    padding: 10px;
 
 }

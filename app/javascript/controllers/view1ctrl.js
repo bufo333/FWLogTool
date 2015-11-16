@@ -6,19 +6,15 @@ angular.module('myApp')
         $scope.results={};
 
         $scope.submit = function(data) {
-            $scope.logObject = ({
+            $scope.logObject = {
                 type: data.format,
                 data: data.txt
-            });
+            };
             $scope.submitted = true;
             $scope.logform = [];
-            var answer = {
-                type: data.format,
-                data: LogProcess.Process($scope.logObject)
-            };
-            $scope.logObject = {};
-            $scope.results.count = Analyzer.Count(answer);
-            $scope.results.sorted = Analyzer.Sort(answer);
-            console.log($scope.results);
+            $scope.logObject.data = LogProcess.Process($scope.logObject);
+            $scope.logObject.count = Analyzer.Count($scope.logObject);
+            $scope.logObject.sorted = Analyzer.Sort($scope.logObject);
+            console.log($scope.logObject.count);
         }
     });

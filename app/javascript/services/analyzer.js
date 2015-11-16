@@ -9,6 +9,7 @@ angular.module('myApp')
         return {
 
             Count: function(arrayOfLogs) {
+                console.log(arrayOfLogs);
                 var answer = [];
                 var index = [4,5,6,7,13,14,15,16,18,21,22,24,26,27];
                 function CountOx(dta, r) {
